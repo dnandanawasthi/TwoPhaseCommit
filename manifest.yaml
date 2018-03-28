@@ -1,0 +1,6 @@
+applications:
+- name: springmvctestapp
+  path: target/SpringMVCJPA2HibernateManyToManyCRUDExample.war
+  domain: cfapps.io
+  memory: 1200m
+  instances: 1

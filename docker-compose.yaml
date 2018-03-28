@@ -1,0 +1,19 @@
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+  volumes:
+    - "./db:/docker-entrypoint-initdb.d"
+
+tomcat:
+  image: tomcat
+  ports:
+    - "8080:8080"
+  environment:
+    VIRTUAL_HOST: tomcat
+  volumes:
+    - "./target/twophasecommit-1.0.0.war:/usr/local/tomcat/webapps/app.war"
+  links:
+    - db
